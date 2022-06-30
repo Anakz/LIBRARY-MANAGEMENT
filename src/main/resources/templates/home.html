@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <!---->
+    <div th:replace="static/navbar :: navbar"></div>
+    <!-- -->
+    <h2 style="color: #902222;" class="text-center mb-4">
+        The GENIUS PLACE
+    </h2>
+<div class="container">
+    <div th:if="${message}" class="card">
+        <div class="alert alert-success text-center">
+            [[${message}]]
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="height: 250px; width: 100%; margin-left: 100px;">
+            <img src="/image/library.jpeg" style="height: 100%; width: 400px;" class="shadow p-1 mb-5 bg-body rounded rounded"/>
+        </div>
+        <div class="col mt-4" style="margin-left: -190px;">
+            <p>
+                The GENIUS PLACE Building is the oldest of the four
+                United States Library of Congress buildings,
+                located on First Street SE between Independence Avenue and East Capitol Street in Washington,
+                D.C. Built between 1890 and 1897, it was originally known as the Library of Congress Building.
+                The Beaux-Arts style building is known for its classicizing facade and elaborately decorated interior.
+                The building's main architect was Paul J. Pelz, initially in partnership
+                with John L. Smithmeyer, and succeeded by Edward Pearce Casey during the last few years of construction.
+                The building was designated a National Historic Landmark in 1965.
+            </p>
+        </div>
+    </div>
+</div>
+    <h2 style="color: #902222;" class="text-center mt-5">
+        Our Best Resource
+    </h2>
+<div class="container">
+
+    <div class="row mt-5 mb-5" style="margin-left: 115px;">
+        <div class="col-4" th:each="resource:${resources}">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title text-center" th:text="${resource.title}">e</h5>
+                    <img style="height: 250px;" th:src="${resource.image}" class="card-img-top" th:alt="${resource.title}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

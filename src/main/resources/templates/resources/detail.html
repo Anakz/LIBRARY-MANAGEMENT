@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>[[${pageTitle}]]</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/203ad00927.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- -->
+  <div th:replace="static/navbar :: navbar"></div>
+  <!-- -->
+<h2 class="text-center mt-n2">Detail Resource</h2>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-6 mx-auto">
+
+        <div class="card mb-3 justify-content-center" style="width: 800px;">
+          <div class="row g-0">
+            <div class="col-md-4" style="height: 600px; width: 400px;">
+              <img style="height: 100%;" th:src="${resource.image}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <h5 class="card-title text-center text-uppercase" th:text="${resource.title}"></h5>
+                <p th:text="'Author:       '+ ${resource.author}" class="card-text"></p>
+                <p th:text="'Language:     '+ ${resource.language}" class="card-text"></p>
+                <p th:text="'Edition:      '+ ${resource.theme}" class="card-text"></p>
+                <p th:text="'Bar Code:     '+ ${resource.barCode}" class="card-text"></p>
+                <p th:text="'Release Date: '+ ${resource.releaseDate}" class="card-text"></p>
+                <p th:text="'Theme:        '+ ${resource.theme}" class="card-text"></p>
+                <p th:text="'Language:     '+ ${resource.language}" class="card-text"></p>
+                <p th:text="'Number Page:  '+ ${resource.numberPage}" class="card-text"></p>
+                <p th:text="'Number Copy:  '+ ${resource.numberCopy}" class="card-text"></p>
+                <p th:text="'Availability: '+ ${resource.availability}" class="card-text"></p>
+                <p th:text="'Type:         '+ ${resource.type}" class="card-text"></p>
+                <p th:text="'Position:     '+ ${resource.position}" class="card-text"></p>
+
+                <div class="text-center">
+                  <!--<a th:href="@{'/resource/detail/'+${resource.id}}" class="text-decoration-none">
+                    <i class="fad fa-info-circle text-secondary"></i>
+                    <b class="text-secondary">Detail</b>
+                  </a>&nbsp;&nbsp;&nbsp;-->
+                  <a th:href="@{'/resource/edit/'+${resource.id}}" class="text-decoration-none">
+                    <i class="fad fa-edit text-warning"></i>
+                    <b class="text-warning">Edit</b>
+                  </a>&nbsp;&nbsp;&nbsp;
+                  <a th:href="@{'/resource/delete/'+${resource.id}}" class="text-decoration-none">
+                    <i class="fas fa-trash-alt text-danger"></i>
+                    <b class="text-danger">Delete</b>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#">The Genius Place</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li th:if="${session.ROLE} == 'ADMIN'" class="nav-item">
+                    <a class="nav-link" href="/user/index">Users</a>
+                </li>
+                <li th:if="${session.FIRSTNAME} != null" class="nav-item">
+                    <a class="nav-link" href="/member/index">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/resource/index">Resource</a>
+                </li>
+                <li th:if="${session.FIRSTNAME} != null" class="nav-item">
+                    <a class="nav-link" href="/position/index">Positions</a>
+                </li>
+                <!--<li th:if="${session.FIRSTNAME} != null" class="nav-item">
+                    <a class="nav-link" href="/copy/index">Copies</a>
+                </li> -->
+                <li th:if="${session.FIRSTNAME} != null" class="nav-item">
+                    <a class="nav-link" href="/borrow/index">Borrows</a>
+                </li>
+            </ul>
+            <div th:if="${session.FIRSTNAME} != null" class="d-flex">
+                <a class="nav-link m-2" th:text="${session.FIRSTNAME}+' '+${session.LASTNAME}"></a>
+                <a href="/user/logout" class="nav-link m-2">Logout</a>
+            </div>
+            <div th:if="${session.FIRSTNAME} == null" class="d-flex">
+                <a href="/user/login" class="nav-link m-2">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!--<div th:if="${message}" class="alert alert-success text-center">
+    [[${message}]]
+</div>
+<div class="alert alert-success text-center">
+    <span th:text="'session.FIRSTNAME:'+ ${session.FIRSTNAME}"></span>
+    <span th:text="'session.LASTNAME:'+ ${session.LASTNAME}"></span>
+</div>-->
